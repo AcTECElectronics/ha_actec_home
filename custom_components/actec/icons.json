@@ -1,0 +1,9 @@
+{
+  "entity": {
+    "button": {
+      "scene": {
+        "default": "mdi:palette"
+      }
+    }
+  }
+}

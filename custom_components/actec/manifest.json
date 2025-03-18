@@ -1,0 +1,15 @@
+{
+  "domain": "actec",
+  "name": "AcTEC",
+  "codeowners": ["@AcTECElectronics"],
+  "config_flow": true,
+  "dependencies": ["zeroconf"],
+  "documentation": "https://github.com/AcTECElectronics/ha_actec_home",
+  "integration_type": "hub",
+  "iot_class": "local_push",
+  "issue_tracker": "https://github.com/AcTECElectronics/ha_actec_home/issues",
+  "loggers": ["actec"],
+  "requirements": [],
+  "version": "v0.1.0",
+  "zeroconf": ["_actec._tcp.local."]
+}

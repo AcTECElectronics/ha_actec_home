@@ -1,0 +1,100 @@
+{
+  "config": {
+    "step": {
+      "pairing": {
+        "title": "正在连接AcTEC网关",
+        "description": "请保持app打开状态，然后点击确定。在app中确认分享后，再次点击确定"
+      },
+      "options": {
+        "title": "选项",
+        "data": {
+          "area_name_rule": "房间名同步模式"
+        }
+      },
+      "reauth_confirm": {
+        "title": "重新授权",
+        "description": "授权失败，请在app中重新授权后，再次重载集成。"
+      }
+    },
+    "error": {},
+    "abort": {
+      "user_step_not_supported": "请触摸网关顶部按钮，等待 HomeAssistant 自动发现网关。"
+    }
+  },
+  "device": {
+    "scene_device": {
+      "name": "{room_name} 场景"
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "motion": {
+        "name": "PIR触发"
+      }
+    },
+    "event": {
+      "single_press": {
+        "name": "按键{endpoint} 单击",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "single_press": "单击"
+            }
+          }
+        }
+      },
+      "double_press": {
+        "name": "按键{endpoint} 双击",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "double_press": "双击"
+            }
+          }
+        }
+      },
+      "long_press": {
+        "name": "按键{endpoint} 长按",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "long_press_down": "长按开始",
+              "long_press_up": "长按结束",
+              "long_press_hold": "长按保持"
+            }
+          }
+        }
+      }
+    },
+    "sensor": {
+      "energy": {
+        "name": "耗电量"
+      },
+      "illuminance": {
+        "name": "光照强度"
+      },
+      "power": {
+        "name": "功率"
+      }
+    }
+  },
+  "exceptions": {
+    "data_format_error": {
+      "message": "数据格式不正确"
+    },
+    "not_supported": {
+      "message": "不支持的网关设备或版本"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "选项",
+        "data": {
+          "host": "网关地址",
+          "area_name_rule": "房间名同步模式（只对新增设备有效）"
+        }
+      }
+    }
+  }
+}

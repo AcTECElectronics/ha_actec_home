@@ -1,0 +1,97 @@
+{
+  "config": {
+    "step": {
+      "pairing": {
+        "title": "Pairing with AcTEC Gateway",
+        "description": "Please keep the app open, then click confirm. After confirming the share in the app, click confirm again."
+      },
+      "options": {
+        "title": "Options",
+        "data": {
+          "area_name_rule": "Room Name Sync Mode"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Reauthorize",
+        "description": "Authorization failed, please reauthorize in the app and reload the integration."
+      }
+    },
+    "error": {},
+    "abort": {
+      "user_step_not_supported": "Please touch the top button of the gateway and wait for HomeAssistant to automatically discover the gateway."
+    }
+  },
+  "device": {
+    "scene_device": {
+      "name": "{room_name} Scenes"
+    }
+  },
+  "entity": {
+    "binary_sensor": {
+      "motion": {
+        "name": "PIR Trigger"
+      }
+    },
+    "event": {
+      "single_press": {
+        "name": "Key {endpoint} Single Press",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "single_press": "Single Press"
+            }
+          }
+        }
+      },
+      "double_press": {
+        "name": "Key {endpoint} Double Press",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "double_press": "Double Press"
+            }
+          }
+        }
+      },
+      "long_press": {
+        "name": "Key {endpoint} Long Press",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "long_press_down": "Long Press Down",
+              "long_press_up": "Long Press Up",
+              "long_press_hold": "Long Press Hold"
+            }
+          }
+        }
+      }
+    },
+    "sensor": {
+      "energy": {
+        "name": "Energy Consumption"
+      },
+      "illuminance": {
+        "name": "Illuminance"
+      },
+      "power": {
+        "name": "Power"
+      }
+    }
+  },
+  "exceptions": {
+    "data_format_error": {
+      "message": "Data Format Error"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Options",
+        "data": {
+          "host": "Gateway Address",
+          "area_name_rule": "Room Name Sync Mode (only for new devices)"
+        }
+      }
+    }
+  }
+}
