@@ -3,6 +3,7 @@ import logging
 from typing import Any
 
 from homeassistant.components.cover import (
+    ATTR_CURRENT_POSITION,
     ATTR_POSITION,
     CoverDeviceClass,
     CoverEntity,
@@ -89,8 +90,8 @@ class AcBaseCover(CoverEntity, RestoreEntity):
         """Run when entity about to be added to hass."""
         await super().async_added_to_hass()
         if last_state := await self.async_get_last_state():
-            if ATTR_POSITION in last_state.attributes:
-                position = last_state.attributes[ATTR_POSITION]
+            if ATTR_CURRENT_POSITION in last_state.attributes:
+                position = last_state.attributes[ATTR_CURRENT_POSITION]
                 self._attr_current_cover_position = position
 
     @property
