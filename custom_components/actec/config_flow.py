@@ -127,7 +127,13 @@ class AcConfigFlow(ConfigFlow, domain=DOMAIN):
         _LOGGER.debug("async_step_reauth_confirm: %s", user_input)
         if user_input is None:
             return self.async_show_form(step_id="reauth_confirm")
-        reauth_entry = self._get_reauth_entry()
+        if (MAJOR_VERSION, MINOR_VERSION) >= (2024, 11):
+            reauth_entry = self._get_reauth_entry()
+        else:
+            reauth_entry = self.hass.config_entries.async_get_entry(
+                self.context["entry_id"]
+            )
+            assert reauth_entry is not None, "Could not find reauth entry"
         host = reauth_entry.options[CONF_HOST]
         token = reauth_entry.data[CONF_TOKEN]
         if errors := await _test_connect(host, token):
