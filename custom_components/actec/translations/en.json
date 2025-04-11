@@ -18,6 +18,7 @@
     },
     "error": {},
     "abort": {
+      "invalid_zeroconf_info": "Invalid zeroconf information",
       "user_step_not_supported": "Please touch the top button of the gateway and wait for HomeAssistant to automatically discover the gateway."
     }
   },

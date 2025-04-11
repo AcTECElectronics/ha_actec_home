@@ -18,6 +18,7 @@
     },
     "error": {},
     "abort": {
+      "invalid_zeroconf_info": "无效的zeroconf信息",
       "user_step_not_supported": "请触摸网关顶部按钮，等待 HomeAssistant 自动发现网关。"
     }
   },
