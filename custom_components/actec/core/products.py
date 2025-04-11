@@ -96,6 +96,9 @@ PRODUCTS_INFO: dict[str, list[dict]] = {
     "512": [  # 可控硅控制器
         {"endpoint": 2, "platform": "light", "type": "brightness"},
     ],
+    "768": [
+        # 代码内特殊处理
+    ],
     "4097": [  # rgbtw驱动器
         {"endpoint": 1, "platform": "light", "type": "hs_color_temp"},
     ],
@@ -134,5 +137,11 @@ PRODUCTS_INFO: dict[str, list[dict]] = {
     "4865": [  # 感应器
         {"endpoint": 1, "platform": "sensor", "type": "illuminance"},
         {"endpoint": 1, "platform": "binary_sensor", "type": "motion"},
+    ],
+    "5120": [
+        # 代码内特殊处理
+    ],
+    "5121": [
+        # 代码内特殊处理
     ],
 }

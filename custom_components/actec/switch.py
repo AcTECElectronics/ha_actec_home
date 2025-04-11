@@ -48,9 +48,11 @@ async def async_setup_entry(
     entities: list[AcDeviceSwitch | AcGroupSwitch] = []
 
     for device in gateway.devices.values():
-        if device.product_key == "768" and device.product_mode == ProductMode.ON_OFF:
-            entities.append(AcDeviceSwitch(device, 2, DESCRIPTIONS["switch"]))
-            entities.append(AcDeviceSwitch(device, 3, DESCRIPTIONS["switch"]))
+        if device.product_key == "768":
+            if device.product_mode == ProductMode.ON_OFF:
+                entities.append(AcDeviceSwitch(device, 2, DESCRIPTIONS["switch"]))
+                entities.append(AcDeviceSwitch(device, 3, DESCRIPTIONS["switch"]))
+            # else: ignore
         elif device.product_key in PRODUCTS_INFO:
             entities.extend(
                 [

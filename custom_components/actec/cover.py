@@ -52,8 +52,10 @@ async def async_setup_entry(
     entities: list[AcDeviceCover | AcGroupCover] = []
 
     for device in gateway.devices.values():
-        if device.product_key == "768" and device.product_mode == ProductMode.CURTAIN:
-            entities.append(AcDeviceCover(device, 2, DESCRIPTIONS["curtain"]))
+        if device.product_key == "768":
+            if device.product_mode == ProductMode.CURTAIN:
+                entities.append(AcDeviceCover(device, 2, DESCRIPTIONS["curtain"]))
+            # else: ignore
         elif device.product_key in PRODUCTS_INFO:
             entities.extend(
                 [
