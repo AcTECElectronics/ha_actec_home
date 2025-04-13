@@ -72,7 +72,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: AcConfigEntry) -> bool:
     head = response[0]
     if not head.get("success"):
         # 未同意授权
-        raise ConfigEntryAuthFailed
+        raise ConfigEntryAuthFailed(translation_key="need_auth")
 
     body = response[1] if len(response) > 1 else {}
     if "integrated_list" not in body:
