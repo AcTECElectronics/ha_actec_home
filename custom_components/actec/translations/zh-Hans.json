@@ -19,7 +19,8 @@
     "error": {},
     "abort": {
       "invalid_zeroconf_info": "无效的zeroconf信息",
-      "user_step_not_supported": "请触摸网关顶部按钮，等待 HomeAssistant 自动发现网关。"
+      "user_step_not_supported": "请触摸网关顶部按钮，等待 HomeAssistant 自动发现网关。",
+      "reauth_successful": "授权成功"
     }
   },
   "device": {
@@ -85,6 +86,9 @@
     },
     "not_supported": {
       "message": "不支持的网关设备或版本"
+    },
+    "need_auth": {
+      "message": "授权失败，请在app中重新授权后，再次重载集成。"
     }
   },
   "options": {

@@ -134,7 +134,7 @@ class AcConfigFlow(ConfigFlow, domain=DOMAIN):
                 self.context["entry_id"]
             )
             assert reauth_entry is not None, "Could not find reauth entry"
-        host = reauth_entry.options[CONF_HOST]
+        host = reauth_entry.data[CONF_HOST]
         token = reauth_entry.data[CONF_TOKEN]
         if errors := await _test_connect(host, token):
             return self.async_show_form(step_id="reauth_confirm", errors=errors)

@@ -19,7 +19,8 @@
     "error": {},
     "abort": {
       "invalid_zeroconf_info": "Invalid zeroconf information",
-      "user_step_not_supported": "Please touch the top button of the gateway and wait for HomeAssistant to automatically discover the gateway."
+      "user_step_not_supported": "Please touch the top button of the gateway and wait for HomeAssistant to automatically discover the gateway.",
+      "reauth_successful": "Reauth successful"
     }
   },
   "device": {
@@ -82,6 +83,12 @@
   "exceptions": {
     "data_format_error": {
       "message": "Data Format Error"
+    },
+    "not_supported": {
+      "message": "Unsupported Gateway Device or Version"
+    },
+    "need_auth": {
+      "message": "Authorization failed, please reauthorize in the app and reload the integration."
     }
   },
   "options": {
