@@ -97,7 +97,7 @@ class AcGateway:
     def _handle_message(self, head: dict, body: dict) -> None:
         """处理接收到的消息."""
         success = head.get("success")
-        if not success:
+        if success is False:
             _LOGGER.warning("Error: message not success: %s", head)
             return
         ns = head.get("namespace")
