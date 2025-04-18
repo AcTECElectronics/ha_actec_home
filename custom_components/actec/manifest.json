@@ -10,6 +10,6 @@
   "issue_tracker": "https://github.com/AcTECElectronics/ha_actec_home/issues",
   "loggers": ["actec"],
   "requirements": [],
-  "version": "v0.2.0",
+  "version": "v0.2.1",
   "zeroconf": ["_actec._tcp.local."]
 }
