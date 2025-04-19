@@ -1,9 +1,13 @@
 {
   "config": {
     "step": {
+      "start_pair": {
+        "title": "Start Pairing",
+        "description": "Please open the AcTEC app first, then click submit."
+      },
       "pairing": {
         "title": "Pairing with AcTEC Gateway",
-        "description": "Please keep the app open, then click confirm. After confirming the share in the app, click confirm again."
+        "description": "Please confirm in the app, then submit again."
       },
       "options": {
         "title": "Options",
@@ -13,10 +17,12 @@
       },
       "reauth_confirm": {
         "title": "Reauthorize",
-        "description": "Authorization failed, please reauthorize in the app and reload the integration."
+        "description": "Please open the AcTEC app first, then click submit."
       }
     },
-    "error": {},
+    "error": {
+      "pairing_app_confirmation_required": "Please confirm in the app, then submit again."
+    },
     "abort": {
       "invalid_zeroconf_info": "Invalid zeroconf information",
       "user_step_not_supported": "Please touch the top button of the gateway and wait for HomeAssistant to automatically discover the gateway.",

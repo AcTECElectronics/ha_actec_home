@@ -1,9 +1,13 @@
 {
   "config": {
     "step": {
+      "start_pair": {
+        "title": "开始配对",
+        "description": "请先打开 AcTEC app，然后点击提交。"
+      },
       "pairing": {
         "title": "正在连接AcTEC网关",
-        "description": "请保持app打开状态，然后点击确定。在app中确认分享后，再次点击确定"
+        "description": "请在 app 中确定分享，然后再次点击提交。"
       },
       "options": {
         "title": "选项",
@@ -13,10 +17,12 @@
       },
       "reauth_confirm": {
         "title": "重新授权",
-        "description": "授权失败，请在app中重新授权后，再次重载集成。"
+        "description": "请先打开 AcTEC app，然后点击提交。"
       }
     },
-    "error": {},
+    "error": {
+      "pairing_app_confirmation_required": "请在 app 中确定分享，然后再次点击提交。"
+    },
     "abort": {
       "invalid_zeroconf_info": "无效的zeroconf信息",
       "user_step_not_supported": "请触摸网关顶部按钮，等待 HomeAssistant 自动发现网关。",

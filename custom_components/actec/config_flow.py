@@ -58,6 +58,13 @@ class AcConfigFlow(ConfigFlow, domain=DOMAIN):
 
         self.token = "".join(random.choice("0123456789abcdef") for _ in range(12))
         _LOGGER.debug("host: %s, mac: %s my_id: %s", self.host, self.mac, self.token)
+        return await self.async_step_start_pair()
+
+    async def async_step_start_pair(self, user_input: dict[str, Any] | None = None):
+        """Handle a flow initialized by the user clicking the start pairing button."""
+        _LOGGER.debug("async_step_start_pair: %s", user_input)
+        if user_input is None:
+            return self.async_show_form(step_id="start_pair")
         return await self.async_step_pairing()
 
     async def async_step_pairing(self, user_input: dict[str, Any] | None = None):
@@ -188,7 +195,7 @@ async def _test_connect(host: str, token: str):
         if not response[0].get("success"):
             # 未同意授权
             errors = {
-                "base": "请保持app打开状态，然后点击确定。在app中确认分享后，再次点击确定",
+                "base": "pairing_app_confirmation_required",
             }
     except Exception as e:
         errors = {"base": str(e)}
