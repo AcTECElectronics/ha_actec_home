@@ -159,9 +159,18 @@ class AcClient:
         await self.send_command(
             [{"namespace": "ha", "command": "get"}, {"action": "report"}]
         )
-        response = await self._take_response()
-        _LOGGER.debug("<= %s", response)
-        return response
+        while True:
+            response = await self._take_response()
+            # {'namespace': 'ha', 'response': 'get', 'success': False, 'type': 'none'}
+            # {'namespace': 'device_control', 'response': 'set', 'success': True, 'type': 'report'}
+            head = response[0]
+            if (head.get("namespace") == "ha" and head.get("response") == "get") or (
+                head.get("type") == "report"
+            ):
+                _LOGGER.debug("<= %s", response)
+                return response
+            else:
+                _LOGGER.debug("DROP: <= %s", response)
 
     async def send_command(self, data: list[dict]) -> None:
         if not self.writer:
