@@ -70,11 +70,6 @@ class AcConfigFlow(ConfigFlow, domain=DOMAIN):
     async def async_step_pairing(self, user_input: dict[str, Any] | None = None):
         """提示用户点击确定."""
         _LOGGER.debug("async_step_pairing: %s", user_input)
-        if user_input is None:
-            # zeroconf
-            return self.async_show_form(step_id="pairing")
-        # 点了确定之后
-
         # 测试一下连接
         if errors := await _test_connect(self.host, self.token):
             return self.async_show_form(

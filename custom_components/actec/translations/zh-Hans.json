@@ -6,8 +6,7 @@
         "description": "请先打开 AcTEC app，然后点击提交。"
       },
       "pairing": {
-        "title": "正在连接AcTEC网关",
-        "description": "请在 app 中确定分享，然后再次点击提交。"
+        "title": "正在连接AcTEC网关"
       },
       "options": {
         "title": "选项",
