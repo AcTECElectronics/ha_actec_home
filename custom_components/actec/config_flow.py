@@ -56,6 +56,9 @@ class AcConfigFlow(ConfigFlow, domain=DOMAIN):
         await self.async_set_unique_id(self.mac)
         self._abort_if_unique_id_configured(updates={CONF_HOST: self.host})
 
+        self.context["title_placeholders"] = {
+            "name": discovery_info.name.partition(".")[0],
+        }
         self.token = "".join(random.choice("0123456789abcdef") for _ in range(12))
         _LOGGER.debug("host: %s, mac: %s my_id: %s", self.host, self.mac, self.token)
         return await self.async_step_start_pair()
