@@ -57,7 +57,7 @@ class AcConfigFlow(ConfigFlow, domain=DOMAIN):
         self._abort_if_unique_id_configured(updates={CONF_HOST: self.host})
 
         self.context["title_placeholders"] = {
-            "name": discovery_info.name.partition(".")[0],
+            "name": discovery_info.name.partition(".")[0].upper(),
         }
         self.token = "".join(random.choice("0123456789abcdef") for _ in range(12))
         _LOGGER.debug("host: %s, mac: %s my_id: %s", self.host, self.mac, self.token)
